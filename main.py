@@ -1,5 +1,6 @@
 import json
 import asyncio
+from asyncio import sleep
 from client import session
 from fastapi import FastAPI
 
@@ -22,6 +23,9 @@ async def hello():
 async def first_data():
     with open('data_source/first_data.json') as json_file:
         data = json.load(json_file)
+    if CHECK_TIMEOUT:
+        # check timeout handling
+        await sleep(4)
     return data
 
 
@@ -30,11 +34,6 @@ async def second_data():
     a = 0
     with open('data_source/second_data.json') as json_file:
         data = json.load(json_file)
-    if CHECK_TIMEOUT:
-        # check timeout handling
-        for i in range(1000000):
-            for z in range(1000000):
-                a += z + i
     return data
 
 
