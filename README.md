@@ -1,8 +1,16 @@
 # AsyncRequests
-All for implementing async requests
+All for implementing async requests app
+
+Each endpoint /get_data/1 and /get_data/2 provide data from json source (data_source folder).
+
+Endpoint /get_data sends async requests with timeout of 2 second.
+After getting responses sort data by "id" field.
+
+Note:
+If one of sources will fall in exception it means "no data".
 
 # Install
-Download and install provided requirements
+Download and install provided requirements.
 
 # Start
 Launch two different instances of FastAPI app on different ports:
